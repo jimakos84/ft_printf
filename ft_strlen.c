@@ -6,11 +6,11 @@
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 11:49:53 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/11/10 15:38:33 by dvlachos         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:49:32 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 size_t	ft_strlen(const char *str)
 {

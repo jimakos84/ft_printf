@@ -1,19 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 12:07:24 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/11/20 15:03:05 by dvlachos         ###   ########.fr       */
+/*   Created: 2024/11/06 12:30:12 by dvlachos          #+#    #+#             */
+/*   Updated: 2024/11/20 17:57:15 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_putchar_fd(const char *c, int fd)
+int	ft_putnbr_fd(int n)
 {
-	write(fd, &*c, 1);
-	return (1);
+	char	s;
+	int	i;
+
+	i = 0;
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		i = 11;
+		return (i);
+	}
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -n;
+		i++;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10);
+		i++;
+	}
+	s = '0' + n % 10;
+	write(1, &s, 1);
+	return (i + 1);
+
 }
