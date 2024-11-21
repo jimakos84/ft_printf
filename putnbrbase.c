@@ -6,7 +6,7 @@
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:03:09 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/11/21 17:04:25 by dvlachos         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:20:05 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_putchar(char c)
 	return (1);
 }
 
-int		check_base(char *base)
+int	check_base(char *base)
 {
 	int	i;
 	int	z;

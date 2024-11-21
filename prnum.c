@@ -6,7 +6,7 @@
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 12:30:12 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/11/21 15:21:43 by dvlachos         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:19:44 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	prnum(int n)
 {
 	char	s;
-	int	i;
+	int		i;
 
 	i = 0;
 	if (n == -2147483648)
@@ -38,5 +38,4 @@ int	prnum(int n)
 	s = '0' + n % 10;
 	write(1, &s, 1);
 	return (i + 1);
-
 }
