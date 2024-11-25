@@ -6,11 +6,11 @@
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:12:59 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/11/21 15:19:39 by dvlachos         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:29:38 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
 int	prchar(int c)
 {

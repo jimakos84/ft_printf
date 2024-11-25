@@ -6,13 +6,13 @@
 #    By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 14:07:44 by dvlachos          #+#    #+#              #
-#    Updated: 2024/11/19 14:09:06 by dvlachos         ###   ########.fr        #
+#    Updated: 2024/11/25 15:08:12 by dvlachos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = 
+SRC = ft_printf.c prchar.c prhex.c prnum.c prpointer.c prstr.c 
 
 OBJ = $(SRC:.c=.o)
 
