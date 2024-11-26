@@ -6,34 +6,45 @@
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:03:09 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/11/25 18:17:13 by dvlachos         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:23:02 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdlib.h>
 
-int	prhex(long long num, char x)
+void	prmirror(char	*str)
 {
-	int	nmb;
 	int	i;
-	int	temp;
-	char	hex[100];
-	
+
+	i = ft_strlen(str) - 1;
+	while (str[i])
+		write(1, &str[i--], 1);
+}
+
+int	prhex(unsigned long num, char x)
+{
+	int		i;
+	int		temp;
+	char	*hex;
+
 	i = 0;
-	nmb = num;
-	while (nmb != 0)
+	hex = malloc(100);
+	if (num == 0)
+		return (i += write(1, "0", 1));
+	while (num != 0)
 	{
-		temp = nmb % 16;
+		temp = num % 16;
 		if (temp < 10)
 			temp += 48;
 		else if (x == 'X')
 			temp += 55;
-		else 
+		else
 			temp += 87;
 		hex[i++] = temp;
-		nmb /= 16;
+		num /= 16;
 	}
-	while (hex[--i])
-		write(1, &hex[i], 1);
+	prmirror(hex);
+	free(hex);
 	return (i);
 }
