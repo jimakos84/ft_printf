@@ -6,7 +6,7 @@
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:26:12 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/11/26 16:30:58 by dvlachos         ###   ########.fr       */
+/*   Updated: 2024/11/27 17:32:50 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	prnum(int n);
 int	prhex(unsigned long num, char x);
 int	prchar(int c);
 int	ft_strlen(const char *str);
+int	prunsint(unsigned int n);
 
 #endif

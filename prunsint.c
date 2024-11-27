@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prnum.c                                            :+:      :+:    :+:   */
+/*   prunsint.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 12:30:12 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/11/27 16:25:46 by dvlachos         ###   ########.fr       */
+/*   Created: 2024/11/27 13:02:50 by dvlachos          #+#    #+#             */
+/*   Updated: 2024/11/27 16:39:25 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int      digit_count(int n)
+static int      digit_count(unsigned int n)
 {
         int     count;
 
@@ -32,24 +32,15 @@ static int      digit_count(int n)
         return (count);
 }
 
-int	prnum(int n)
+int	prunsint(unsigned int	n)
 {
 	char	s;
-	int		i;
 
-	i = 0;
-	if (n == -2147483648)
-		 return (write(1, "-2147483648", 11));
-	if (n < 0)
-	{
-		i += write(1, "-", 1);
-		n = -n;
-	}
 	if (n > 9)
 	{
-		prnum(n / 10);
+		prunsint(n / 10);
 	}
 	s = '0' + n % 10;
 	write(1, &s, 1);
-	return (i += digit_count(n));
+	return (digit_count(n));
 }
