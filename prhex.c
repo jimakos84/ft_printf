@@ -14,22 +14,37 @@
 
 int	prmirror(char	*str)
 {
-	int	i;
+	int	total_digits;
+	int	significant_digits;
 	int	check;
+	int	i;
 
-	i = ft_strlen(str) - 1;
-	while (str[i])
-		check = write(1, &str[i--], 1);
-	if (check == -1)
-		return (-1);
-	else
-		return (0);
+	total_digits = ft_strlen(str) - 1;
+	significant_digits = 0;
+	while (total_digits >= 0)
+	{
+		if(str[total_digits] != '0')
+		{
+			significant_digits = total_digits + 1;
+			break;
+		}
+
+	}
+	i = significant_digits - 1;
+	while (i >= 0)
+	{
+		check = prchar(str[i]);
+		if (check == -1)
+			return (-1);
+		i--;
+	}
+	return (significant_digits);
 }
 
 int	prhex(uintptr_t num, char x)
 {
 	int		i;
-	int		temp;
+	uintptr_t	temp;
 	static char	hex[100];
 
 	i = 0;
@@ -39,14 +54,14 @@ int	prhex(uintptr_t num, char x)
 	{
 		temp = num % 16;
 		if (temp < 10)
-			temp += 48;
+			hex[i] = temp + 48;
 		else if (x == 'X')
-			temp += 55;
+			hex[i] = temp + 55;
 		else if (x == 'x')
-			temp += 87;
-		hex[i++] = temp;
+			hex[i] = temp + 87;
+		i++;
 		num /= 16;
 	}
-	prmirror(hex);
-	return (i);
+	hex[i] = '\0';
+	return (prmirror(hex));
 }
