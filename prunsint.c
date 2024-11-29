@@ -19,11 +19,6 @@ static int	digit_count(unsigned int n)
 	count = 0;
 	if (n == 0)
 		return (1);
-	if (n < 0)
-	{
-		n = -n;
-		count++;
-	}
 	while (n != 0)
 	{
 		n /= 10;

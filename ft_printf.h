@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <stdint.h>
 # include <stdio.h>
-# include <limits.h>
+# include <stdarg.h>
 
 int	ft_printf(const char *c, ...);
 int	prstr(char *str);
