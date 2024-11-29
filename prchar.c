@@ -6,7 +6,7 @@
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:12:59 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/11/25 15:29:38 by dvlachos         ###   ########.fr       */
+/*   Updated: 2024/11/29 13:39:14 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	prchar(int c)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = write(1, &c, 1);
+	if (i == -1)
+		return (-1);
 	return (1);
 }

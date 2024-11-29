@@ -6,32 +6,35 @@
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:03:09 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/11/27 17:26:04 by dvlachos         ###   ########.fr       */
+/*   Updated: 2024/11/29 17:06:25 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdlib.h>
 
-void	prmirror(char	*str)
+int	prmirror(char	*str)
 {
 	int	i;
+	int	check;
 
 	i = ft_strlen(str) - 1;
 	while (str[i])
-		write(1, &str[i--], 1);
+		check = write(1, &str[i--], 1);
+	if (check == -1)
+		return (-1);
+	else
+		return (0);
 }
 
-int	prhex(unsigned long num, char x)
+int	prhex(uintptr_t num, char x)
 {
 	int		i;
 	int		temp;
-	char	*hex;
+	static char	hex[100];
 
 	i = 0;
-	hex = malloc(100);
 	if (num == 0)
-		return (i += write(1, "0", 1));
+		return (i += prchar('0'));
 	while (num != 0)
 	{
 		temp = num % 16;
@@ -39,12 +42,11 @@ int	prhex(unsigned long num, char x)
 			temp += 48;
 		else if (x == 'X')
 			temp += 55;
-		else
+		else if (x == 'x')
 			temp += 87;
 		hex[i++] = temp;
 		num /= 16;
 	}
 	prmirror(hex);
-	free(hex);
 	return (i);
 }
