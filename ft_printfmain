@@ -6,11 +6,12 @@
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 13:24:38 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/11/29 13:29:30 by dvlachos         ###   ########.fr       */
+/*   Updated: 2024/12/10 14:04:18 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int     main()
 {
@@ -68,5 +69,8 @@ int     main()
        printf("system printf: %u\n", u);
        printf("%d\n", printf("%u\n", u));
        ft_printf("%d\n", ft_printf("%u\n", u));
+       ft_printf("-------------------------------------------------------------------------------------------------------------------\n");
+       printf("%d\n", printf("%"));
+       ft_printf("%d\n", ft_printf("%"));
        return 0;
 }

@@ -20,11 +20,9 @@ int	prstr(char *str)
 	i = 0;
 	if (str == NULL)
 		return (write(1, "(null)", 6));
-	while (str[i])
-	{
-		check = write(1, &str[i++], 1);
-		if (check == -1)
-			return (-1);
-	}
+	check = write(1, str, ft_strlen(str));
+	if (check == -1)
+		return (-1);
+	i = check;
 	return (i);
 }

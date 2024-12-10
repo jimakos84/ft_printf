@@ -6,7 +6,7 @@
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 17:03:09 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/11/29 17:06:25 by dvlachos         ###   ########.fr       */
+/*   Updated: 2024/12/09 11:49:56 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ int	prmirror(char	*str)
 	significant_digits = 0;
 	while (total_digits >= 0)
 	{
-		if(str[total_digits] != '0')
+		if (str[total_digits] != '0')
 		{
 			significant_digits = total_digits + 1;
-			break;
+			break ;
 		}
-
 	}
 	i = significant_digits - 1;
 	while (i >= 0)
@@ -43,7 +42,7 @@ int	prmirror(char	*str)
 
 int	prhex(uintptr_t num, char x)
 {
-	int		i;
+	int			i;
 	uintptr_t	temp;
 	static char	hex[100];
 

@@ -48,7 +48,9 @@ int	prnum(int n)
 	}
 	if (n > 9)
 	{
-		prnum(n / 10);
+		check = prnum(n / 10);
+		if (check == -1)
+			return (-1);
 	}
 	s = '0' + n % 10;
 	check = write(1, &s, 1);
