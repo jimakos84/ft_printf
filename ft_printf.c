@@ -6,13 +6,13 @@
 /*   By: dvlachos <dvlachos@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:16:53 by dvlachos          #+#    #+#             */
-/*   Updated: 2024/12/10 19:12:43 by dvlachos         ###   ########.fr       */
+/*   Updated: 2024/12/11 15:24:50 by dvlachos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	check_type(const char c, va_list *args)
+static int	check_type(const char c, va_list *args)
 {
 	int	i;
 
@@ -34,6 +34,34 @@ int	check_type(const char c, va_list *args)
 	return (i);
 }
 
+static int	write_check(const char *c, va_list *args)
+{
+	int	i;
+	int	check;
+	int	printed;
+
+	i = 0;
+	check = 0;
+	printed = 0;
+	while (c[i])
+	{
+		if (c[i] == '%')
+		{
+			if (c[i + 1] == 0)
+				return (-1);
+			check += check_type(c[i + 1], args);
+			i++;
+		}
+		else
+			check += prchar(c[i]);
+		if (check == -1)
+			return (-1);
+		i++;
+	}
+	printed = check;
+	return (printed);
+}
+
 int	ft_printf(const char *c, ...)
 {
 	va_list	args;
@@ -45,19 +73,7 @@ int	ft_printf(const char *c, ...)
 	va_start(args, c);
 	if (c == NULL)
 		return (-1);
-	while (c[i])
-	{
-		if (c[i] == '%')
-		{
-			if (c[i + 1] == 0)
-				return (-1);
-			len += check_type(c[i + 1], &args);
-			i++;
-		}
-		else
-			len += prchar(c[i]);
-		i++;
-	}
+	len = write_check(c, &args);
 	va_end(args);
 	return (len);
 }
